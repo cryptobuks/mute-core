@@ -69,6 +69,10 @@ export class SyncService implements Disposable {
     return new State(this.vector.asMap(), this.richLogootSOps)
   }
 
+  get getClock (): number {
+    return this.clock
+  }
+
   set localLogootSOperationSource (source: Observable<LogootSOperation>) {
     source.pipe(takeUntil(this.disposeSubject))
       .subscribe((logootSOp: LogootSOperation) => {
